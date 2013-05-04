@@ -263,6 +263,7 @@ endif
 LIBS-$(CONFIG_OF_EMBED) += dts/libdts.o
 LIBS-y += arch/$(ARCH)/lib/lib$(ARCH).o
 LIBS-y += fs/libfs.o \
+	fs/btrfs/libbtrfs.o \
 	fs/cbfs/libcbfs.o \
 	fs/cramfs/libcramfs.o \
 	fs/ext4/libext4fs.o \

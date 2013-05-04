@@ -64,6 +64,7 @@ COBJS-y += errno.o
 COBJS-y += display_options.o
 COBJS-$(CONFIG_BCH) += bch.o
 COBJS-y += crc32.o
+COBJS-y += crc32_c.o
 COBJS-y += ctype.o
 COBJS-y += div64.o
 COBJS-y += hang.o

@@ -77,6 +77,7 @@ COBJS-$(CONFIG_CMD_BMP) += cmd_bmp.o
 COBJS-$(CONFIG_CMD_BOOTMENU) += cmd_bootmenu.o
 COBJS-$(CONFIG_CMD_BOOTLDR) += cmd_bootldr.o
 COBJS-$(CONFIG_CMD_BOOTSTAGE) += cmd_bootstage.o
+COBJS-$(CONFIG_CMD_BTR) += cmd_btr.o
 COBJS-$(CONFIG_CMD_CACHE) += cmd_cache.o
 COBJS-$(CONFIG_CMD_CBFS) += cmd_cbfs.o
 COBJS-$(CONFIG_CMD_CONSOLE) += cmd_console.o
