@@ -53,4 +53,8 @@
 #define HAVE_BLOCK_DEVICE
 #endif
 
+#if defined(CONFIG_CMD_BTR) && !defined(CONFIG_FS_BTR)
+#define CONFIG_FS_BTR
+#endif
+
 #endif	/* __CONFIG_FALLBACKS_H */

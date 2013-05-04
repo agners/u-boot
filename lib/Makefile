@@ -70,6 +70,7 @@ COBJS-$(CONFIG_SPL_NET_SUPPORT) += net_utils.o
 endif
 COBJS-$(CONFIG_BCH) += bch.o
 COBJS-y += crc32.o
+COBJS-y += crc32_c.o
 COBJS-y += ctype.o
 COBJS-y += div64.o
 COBJS-y += hang.o
