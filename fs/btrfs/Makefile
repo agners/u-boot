@@ -35,6 +35,7 @@ COBJS-$(CONFIG_FS_BTR) := btrfs.o
 SRCS	:= $(AOBJS:.o=.S) $(COBJS-y:.o=.c)
 OBJS	:= $(addprefix $(obj),$(AOBJS) $(COBJS-y))
 
+$(obj)btrfs.o: CFLAGS += $(PLATFORM_NO_UNALIGNED)
 
 all:	$(LIB) $(AOBJS)
 
