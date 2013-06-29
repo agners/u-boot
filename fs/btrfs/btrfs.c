@@ -906,46 +906,6 @@ void btrfs_close_file(struct file *file)
 	free_file(file);
 }
 
-void btrfs_mangle_name(char *dst, const char *src)
-{
-	char *p = dst, ch, len;
-	int i = BTRFS_FILENAME_MAX-1;
-
-	len = strlen(src);
-	ch = *src;
-	while (!isspace(ch)) {
-		if (*src == '/') {
-			if (src[1] == '/') {
-				src++;
-				i--;
-				continue;
-			}
-		}
-		if (!len)
-			break;
-		i--;
-		len--;
-		*dst++ = *src++;
-		ch = *src;
-	}
-	while (1) {
-		if (dst == p)
-			break;
-		if (dst[-1] != '/')
-			break;
-		if ((dst[-1] == '/') && ((dst - 1) == p))
-			break;
-
-		dst--;
-		i++;
-	}
-
-	i++;
-	for (; i > 0; i--)
-		*dst++ = '\0';
-
-}
-
 int searchdir(const char *name)
 {
 	struct inode *inode = NULL;
@@ -1088,10 +1048,8 @@ int btrfs_open_file(const char *name, struct com32_filedata *filedata)
 {
 	int rv;
 	struct file *file;
-	char mangled_name[BTRFS_FILENAME_MAX];
 
-	btrfs_mangle_name(mangled_name, name);
-	rv = searchdir(mangled_name);
+	rv = searchdir(name);
 	if (rv < 0)
 		return rv;
 
