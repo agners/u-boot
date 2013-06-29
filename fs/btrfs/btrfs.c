@@ -963,6 +963,9 @@ int searchdir(const char *name)
 	if (!pathbuf)
 		goto err;
 
+	while (*p == '/')
+		p++;
+
 	do {
 got_link:
 		if (*p == '/') {
@@ -1323,9 +1326,6 @@ int btrfs_ls(const char *dirn)
 	struct btrfs_dirent *de;
 	char *dirname = (char *)dirn;
 	struct _DIR_ *dir;
-
-	if (*dirname == '/' && *(dirname+1) == 0)
-		*dirname = '.';
 
 	dir = opendir(dirname);
 	if (dir == NULL)
